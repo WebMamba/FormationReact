@@ -1,5 +1,5 @@
 export default function HelloWorld() {
-    const name = <script>{`console.log("hello world")`}</script>;
+    const name = "Arthur";
 
     return (
         <>
