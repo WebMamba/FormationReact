@@ -6,3 +6,9 @@ test("render HelloWorld without crashing", () => {
 
     expect(screen.getByText("Bienvenu sur React Arthur !")).toBeInTheDocument();
 });
+
+test("test HelloWorld with snapshot", () => {
+    const component = render(<HelloWorld/>);
+
+    expect(component).toMatchSnapshot();
+});
