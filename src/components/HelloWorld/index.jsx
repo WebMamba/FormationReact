@@ -1,5 +1,11 @@
 export default function HelloWorld() {
-    const name = "Arthur";
+    const name = "Tom";
+
+    if (name !== "Arthur") {
+        return (
+            <h1>T'es pas le bienvenu gamin !</h1>
+        )
+    }
 
     return (
         <>
