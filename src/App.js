@@ -1,7 +1,9 @@
+import HelloWorld from "./components/HelloWorld";
+
 function App() {
   return (
     <div className="App">
-      <p>Hellow World !</p>
+      <HelloWorld/>
     </div>
   );
 }
