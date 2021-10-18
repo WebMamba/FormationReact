@@ -6,3 +6,5 @@ export default {
 };
 
 export const NotChecked = () => <CheckBox />;
+
+export const Checked = () => <CheckBox checked={true} />;
