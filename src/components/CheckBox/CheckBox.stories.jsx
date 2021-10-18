@@ -5,6 +5,6 @@ export default {
   component: CheckBox,
 };
 
-export const NotChecked = () => <CheckBox />;
+export const NotChecked = () => <CheckBox checked={false} />;
 
 export const Checked = () => <CheckBox checked={true} />;

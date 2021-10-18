@@ -1,6 +1,7 @@
 import styles from "./TodoItem.module.css";
 import CheckBox from "../CheckBox";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function TodoItem(props) {
   const { title, datetime } = props;
@@ -27,3 +28,8 @@ export default function TodoItem(props) {
     </div>
   );
 }
+
+TodoItem.propTypes = {
+  title: PropTypes.string,
+  datetime: PropTypes.object,
+};

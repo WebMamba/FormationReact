@@ -1,5 +1,6 @@
 import TodoItem from "../TodoItem";
 import styles from "./TodoList.module.css";
+import PropTypes from "prop-types";
 
 export default function TodoList(props) {
   const { list } = props;
@@ -20,3 +21,7 @@ export default function TodoList(props) {
     </>
   );
 }
+
+TodoList.propTypes = {
+  list: PropTypes.array,
+};
