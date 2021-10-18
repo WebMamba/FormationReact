@@ -5,4 +5,6 @@ export default {
   component: TodoItem,
 };
 
-export const NotValided = () => <TodoItem />;
+export const NotValided = () => (
+  <TodoItem title="Faire une react App" datetime={new Date()} />
+);
