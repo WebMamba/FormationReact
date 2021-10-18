@@ -1,55 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render TodoItem without crashing 1`] = `
+exports[`render checkbox without crashing 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="container"
-      >
-        <h5
-          class="title"
-        >
-          Test
-        </h5>
-        <p
-          class="caption"
-        >
-          Ajouté le 
-          2
-          /
-          1
-           à
-           
-          0
-          h
-        </p>
-      </div>
+      <button
+        class="checkbox not_check"
+      />
     </div>
   </body>,
   "container": <div>
-    <div
-      class="container"
-    >
-      <h5
-        class="title"
-      >
-        Test
-      </h5>
-      <p
-        class="caption"
-      >
-        Ajouté le 
-        2
-        /
-        1
-         à
-         
-        0
-        h
-      </p>
-    </div>
+    <button
+      class="checkbox not_check"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
