@@ -4,6 +4,7 @@
   border-radius: 6px;
   border: 0px;
   color: white;
+  cursor: pointer;
 }
 
 .not_check {
