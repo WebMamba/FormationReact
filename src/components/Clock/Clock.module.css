@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}
+
+.time {
+  font-size: 1.2em;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #568083;
+}
