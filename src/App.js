@@ -1,10 +1,16 @@
-import HelloWorld from "./components/HelloWorld";
+import Layout from "./components/Layout";
+import Clock from "./components/Clock";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { item1, item2, item3 } from "./fixtures/item_fixtures";
 
 function App() {
   return (
-    <div className="App">
-      <HelloWorld/>
-    </div>
+    <Layout>
+      <Clock />
+      <TodoForm />
+      <TodoList list={[item1, item2, item3]} />
+    </Layout>
   );
 }
 

@@ -1,7 +1,6 @@
 .form {
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 8px;
   background: #f0e7eb;
   justify-content: space-between;

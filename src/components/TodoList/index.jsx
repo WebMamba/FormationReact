@@ -23,5 +23,5 @@ export default function TodoList(props) {
 }
 
 TodoList.propTypes = {
-  list: PropTypes.array,
+  list: PropTypes.array.isRequired,
 };

@@ -23,6 +23,7 @@ export default function TodoForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    validateValue(value);
     setTouched(true);
   };
 
@@ -59,7 +60,7 @@ export default function TodoForm() {
           helperMessage={helperMessage}
         />
         <button className={styles.button} type="submit">
-          Valider
+          Ajouter
         </button>
       </div>
     </form>
