@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import TextField from "../TextField";
 import styles from "./TodoForm.module.css";
 
-export default function TodoForm() {
+export default function TodoForm(props) {
+  const { onAddItem } = props;
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
   const [touched, setTouched] = useState(false);
@@ -25,6 +27,18 @@ export default function TodoForm() {
 
     validateValue(value);
     setTouched(true);
+
+    if (error) {
+      return;
+    }
+
+    const newItem = { title: value, datetime: new Date() };
+
+    if (onAddItem) {
+      onAddItem(newItem);
+    }
+    setTouched(false);
+    setValue("");
   };
 
   const validateValue = (value) => {
@@ -66,3 +80,7 @@ export default function TodoForm() {
     </form>
   );
 }
+
+TodoForm.propTypes = {
+  onAddItem: PropTypes.func,
+};

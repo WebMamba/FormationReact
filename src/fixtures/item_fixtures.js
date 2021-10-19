@@ -1,14 +1,14 @@
 export const item1 = {
   title: "Faire une app React",
-  datetime: new Date("2/1/22"),
+  datetime: new Date("Octobre 19, 2021 10:24:00"),
 };
 
 export const item2 = {
   title: "100 tractions",
-  datetime: new Date("2/1/22"),
+  datetime: new Date("Octobre 19, 2021 10:30:00"),
 };
 
 export const item3 = {
   title: "Dej avec babes",
-  datetime: new Date("2/1/22"),
+  datetime: new Date("Octobre 19, 2021 14:02:00"),
 };

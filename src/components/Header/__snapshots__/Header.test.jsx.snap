@@ -5,15 +5,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <header
+      <div
         class="header"
       >
-        <span />
         <h3
           class="title"
         >
           TODO
         </h3>
+        <span />
         <div
           class="avatar"
         >
@@ -21,19 +21,19 @@ Object {
             T
           </p>
         </div>
-      </header>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <header
+    <div
       class="header"
     >
-      <span />
       <h3
         class="title"
       >
         TODO
       </h3>
+      <span />
       <div
         class="avatar"
       >
@@ -41,7 +41,7 @@ Object {
           T
         </p>
       </div>
-    </header>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

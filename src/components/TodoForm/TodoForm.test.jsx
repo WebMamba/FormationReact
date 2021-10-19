@@ -8,7 +8,7 @@ test("test TodoForm show error when filling bad value", () => {
   const input = screen.getByRole("textbox");
   userEvent.type(input, "l");
 
-  const button = screen.getByText("Valider");
+  const button = screen.getByText("Ajouter");
   userEvent.click(button);
 
   expect(screen.getByText("C'est un peu court")).toBeInTheDocument();
