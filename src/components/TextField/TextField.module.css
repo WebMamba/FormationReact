@@ -1,0 +1,44 @@
+.textbox {
+  border: 2px solid #e0cad6;
+  border-radius: 14px;
+  padding: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: #568083;
+  font-style: italic;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.textbox:focus {
+  border: 2px solid #c94288;
+  outline: none;
+}
+
+.textbox::placeholder {
+  color: #a2c6c9;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  font-style: italic;
+}
+
+.error {
+  border: 2px solid #c94242;
+}
+
+.error:focus {
+  border: 2px solid #c94242;
+  outline: none;
+}
+
+.error_message {
+  color: #c94242;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+  margin: 0;
+  font-style: italic;
+  margin-left: 8px;
+}

@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: #f0e7eb;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 16px;
+  margin: 8px;
+  color: white;
+  background-color: #c94288;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  border-radius: 14px;
+  border: 0px;
+}
