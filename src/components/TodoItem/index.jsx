@@ -16,6 +16,7 @@ export default function TodoItem(props) {
     <div
       data-testid="todo-item"
       className={`${styles.container} ${checked ? styles.checked : ""}`}
+      {...props}
     >
       <div>
         <h5 className={styles.title}>{title}</h5>

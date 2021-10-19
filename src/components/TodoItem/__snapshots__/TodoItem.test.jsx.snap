@@ -8,6 +8,9 @@ Object {
       <div
         class="container "
         data-testid="todo-item"
+        datetime="Tue Oct 19 2021 10:24:00 GMT+0200 (heure d’été d’Europe centrale)"
+        id="1"
+        title="Faire une app React"
       >
         <div>
           <h5
@@ -38,6 +41,9 @@ Object {
     <div
       class="container "
       data-testid="todo-item"
+      datetime="Tue Oct 19 2021 10:24:00 GMT+0200 (heure d’été d’Europe centrale)"
+      id="1"
+      title="Faire une app React"
     >
       <div>
         <h5

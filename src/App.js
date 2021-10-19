@@ -16,11 +16,21 @@ function App() {
     setTodoList([...todoList, newItem]);
   };
 
+  const handleDrop = (reorderedList) => {
+    setTodoList(reorderedList);
+  };
+
+  const handleDelete = (id) => {
+    const newList = [...todoList];
+    newList.splice(id, 1);
+    setTodoList(newList);
+  };
+
   return (
     <Layout>
       <Clock />
       <TodoForm onAddItem={handleAddItem} />
-      <TodoList list={todoList} />
+      <TodoList list={todoList} onDrop={handleDrop} onDelete={handleDelete} />
     </Layout>
   );
 }
