@@ -7,6 +7,7 @@ export default function CheckBox(props) {
 
   return (
     <button
+      aria-label="checkbox"
       className={`${styles.checkbox} ${
         checked ? styles.check : styles.not_check
       }`}

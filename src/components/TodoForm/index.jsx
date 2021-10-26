@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { createNewTodoItem } from "../../services/todoManager";
+import { validateName } from "../../services/validator";
 import TextField from "../TextField";
 import styles from "./TodoForm.module.css";
 
@@ -32,7 +34,7 @@ export default function TodoForm(props) {
       return;
     }
 
-    const newItem = { title: value, datetime: new Date() };
+    const newItem = createNewTodoItem(value);
 
     if (onAddItem) {
       onAddItem(newItem);
@@ -42,25 +44,15 @@ export default function TodoForm(props) {
   };
 
   const validateValue = (value) => {
-    if (value === "") {
-      setError(true);
-      setHelperMessage("Vous devez écrire quelque chose");
+    const validationMessage = validateName(value);
+
+    if (!validationMessage) {
+      setError(false);
       return;
     }
 
-    if (value.length < 2) {
-      setError(true);
-      setHelperMessage("C'est un peu court");
-      return;
-    }
-
-    if (value.length > 50) {
-      setError(true);
-      setHelperMessage("C'est beaucoup trop long");
-      return;
-    }
-
-    setError(false);
+    setError(true);
+    setHelperMessage(validationMessage);
   };
 
   return (

@@ -6,12 +6,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
+        aria-label="checkbox"
         class="checkbox not_check"
       />
     </div>
   </body>,
   "container": <div>
     <button
+      aria-label="checkbox"
       class="checkbox not_check"
     />
   </div>,

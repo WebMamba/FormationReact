@@ -21,9 +21,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    const newList = [...todoList];
-    newList.splice(id, 1);
-    setTodoList(newList);
+    setTodoList([...todoList].filter((item) => item.id !== id));
   };
 
   return (
