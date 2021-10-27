@@ -34,7 +34,11 @@ export default function TodoList(props) {
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="droppable">
         {(provided, snapshot) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={styles.container}
+          >
             {list.map((item, index) => (
               <Draggable key={item.id} draggableId={item.id} index={index}>
                 {(provided, snapshot) => (

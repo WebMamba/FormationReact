@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import styles from "./TodoItem.module.css";
 import CheckBox from "../CheckBox";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TodoItem(props) {
+  const [date, setDate] = useState();
   const { title, datetime } = props;
 
   const [checked, setChecked] = useState(false);
@@ -12,6 +14,10 @@ export default function TodoItem(props) {
     setChecked(!checked);
   };
 
+  useEffect(() => {
+    setDate(new Date(datetime));
+  }, []);
+
   return (
     <div
       data-testid="todo-item"
@@ -19,10 +25,11 @@ export default function TodoItem(props) {
     >
       <div>
         <h5 className={styles.title}>{title}</h5>
-        <p className={styles.caption}>
-          Ajouté le {datetime.getDay()}/{datetime.getMonth()} à{" "}
-          {datetime.getHours()}h
-        </p>
+        {date && (
+          <p className={styles.caption}>
+            Ajouté le {date.getDay()}/{date.getMonth()} à {date.getHours()}h
+          </p>
+        )}
       </div>
       <CheckBox checked={checked} onCheck={handleCheck} />
     </div>
@@ -31,5 +38,5 @@ export default function TodoItem(props) {
 
 TodoItem.propTypes = {
   title: PropTypes.string,
-  datetime: PropTypes.object,
+  datetime: PropTypes.string,
 };
