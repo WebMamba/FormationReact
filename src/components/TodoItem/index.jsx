@@ -5,35 +5,33 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TodoItem(props) {
+  const [taskId, setTaskId] = useState();
   const [date, setDate] = useState();
   const { task, onCheck } = props;
 
-  const [checked, setChecked] = useState(false);
-
   const handleCheck = () => {
-    setChecked(!checked);
-    onCheck();
+    onCheck(taskId);
   };
 
   useEffect(() => {
-    setChecked(task.check);
     setDate(new Date(task.datetime));
-  }, []);
+    setTaskId(task.id);
+  }, [task]);
 
   return (
     <div
       data-testid="todo-item"
-      className={`${styles.container} ${checked ? styles.checked : ""}`}
+      className={`${styles.container} ${task.check ? styles.checked : ""}`}
     >
       <div>
-        <h5 className={styles.title}>{props.task.title}</h5>
+        <h5 className={styles.title}>{task.title}</h5>
         {date && (
           <p className={styles.caption}>
             Ajouté le {date.getDay()}/{date.getMonth()} à {date.getHours()}h
           </p>
         )}
       </div>
-      <CheckBox checked={checked} onCheck={handleCheck} />
+      <CheckBox checked={task.check} onCheck={handleCheck} />
     </div>
   );
 }

@@ -3,19 +3,37 @@ import Layout from "./components/Layout";
 import Clock from "./components/Clock";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import Loader from "./components/Loader";
+import { deleteTask, getTasks, postTask, putTask } from "./api/task";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    fetch("/tasks")
-      .then((res) => res.json())
-      .then((tasks) => setTodoList(tasks))
-      .catch((res) => console.log(res));
+    getTasks()
+      .then((tasks) => {
+        setTodoList(tasks);
+        setLoading(false);
+      })
+      .catch((res) => {
+        setLoading(false);
+        setError(true);
+        setErrorMessage("Impossible de charger votre todo list !");
+      });
   }, []);
 
   const handleAddItem = (newItem) => {
-    setTodoList([...todoList, newItem]);
+    const currentState = [...todoList];
+    setTodoList([...currentState, newItem]);
+
+    postTask(newItem).catch((error) => {
+      setTodoList(currentState);
+      setError(true);
+      setErrorMessage("Impossible d'ajouter un item pour le moment !");
+    });
   };
 
   const handleDrop = (reorderedList) => {
@@ -23,23 +41,47 @@ function App() {
   };
 
   const handleDelete = (id) => {
+    const currentState = [...todoList];
     setTodoList([...todoList].filter((item) => item.id !== id));
+
+    deleteTask(id).catch(() => {
+      setTodoList(currentState);
+      setError(true);
+      setErrorMessage("Impossible de supprimer l'item !");
+    });
   };
 
   const handleCheck = (id) => {
-    console.log(id);
+    const currentState = [...todoList];
+    const elementToUpdate = todoList.find((element) => element.id === id);
+
+    setTodoList(
+      [...todoList].map((element) =>
+        element.id === id ? { ...element, check: !element.check } : element
+      )
+    );
+
+    putTask(id, { check: !elementToUpdate.check }).catch(() => {
+      setTodoList(currentState);
+      setError(true);
+      setErrorMessage("Impossible de checker l'item pour le moment !");
+    });
   };
 
   return (
-    <Layout>
+    <Layout openError={error} errorMessage={errorMessage}>
       <Clock />
       <TodoForm onAddItem={handleAddItem} />
-      <TodoList
-        list={todoList}
-        onDrop={handleDrop}
-        onDelete={handleDelete}
-        onCheck={handleCheck}
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <TodoList
+          list={todoList}
+          onDrop={handleDrop}
+          onDelete={handleDelete}
+          onCheck={handleCheck}
+        />
+      )}
     </Layout>
   );
 }

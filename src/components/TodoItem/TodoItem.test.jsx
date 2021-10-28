@@ -14,10 +14,8 @@ test("click on checkbox change css class", () => {
   render(<TodoItem task={item1} onCheck={onCheckMock} />);
 
   const checkBox = screen.getByRole("button");
-  const container = screen.getByTestId("todo-item");
 
   userEvent.click(checkBox);
 
-  expect(checkBox).toHaveClass("check");
-  expect(container).toHaveClass("checked");
+  expect(onCheckMock).toBeCalled();
 });
