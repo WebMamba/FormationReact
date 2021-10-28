@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { reorder } from "../../services/todoManager";
 
 export default function TodoList(props) {
-  const { list, onDrop, onDelete } = props;
+  const { list, onDrop, onDelete, onCheck } = props;
 
   const handleDragEnd = (result) => {
     if (!result.destination) {
@@ -47,11 +47,7 @@ export default function TodoList(props) {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    <TodoItem
-                      key={item.title}
-                      title={item.title}
-                      datetime={item.datetime}
-                    />
+                    <TodoItem key={item.title} task={item} onCheck={onCheck} />
                   </div>
                 )}
               </Draggable>
@@ -68,4 +64,5 @@ TodoList.propTypes = {
   list: PropTypes.array.isRequired,
   onDrop: PropTypes.func,
   onDelete: PropTypes.func,
+  onCheck: PropTypes.func,
 };

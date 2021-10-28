@@ -6,16 +6,18 @@ import PropTypes from "prop-types";
 
 export default function TodoItem(props) {
   const [date, setDate] = useState();
-  const { title, datetime } = props;
+  const { task, onCheck } = props;
 
   const [checked, setChecked] = useState(false);
 
   const handleCheck = () => {
     setChecked(!checked);
+    onCheck();
   };
 
   useEffect(() => {
-    setDate(new Date(datetime));
+    setChecked(task.check);
+    setDate(new Date(task.datetime));
   }, []);
 
   return (
@@ -24,7 +26,7 @@ export default function TodoItem(props) {
       className={`${styles.container} ${checked ? styles.checked : ""}`}
     >
       <div>
-        <h5 className={styles.title}>{title}</h5>
+        <h5 className={styles.title}>{props.task.title}</h5>
         {date && (
           <p className={styles.caption}>
             Ajouté le {date.getDay()}/{date.getMonth()} à {date.getHours()}h
@@ -37,6 +39,6 @@ export default function TodoItem(props) {
 }
 
 TodoItem.propTypes = {
-  title: PropTypes.string,
-  datetime: PropTypes.string,
+  task: PropTypes.object,
+  onCheck: PropTypes.func,
 };

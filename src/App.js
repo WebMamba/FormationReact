@@ -26,11 +26,20 @@ function App() {
     setTodoList([...todoList].filter((item) => item.id !== id));
   };
 
+  const handleCheck = (id) => {
+    console.log(id);
+  };
+
   return (
     <Layout>
       <Clock />
       <TodoForm onAddItem={handleAddItem} />
-      <TodoList list={todoList} onDrop={handleDrop} onDelete={handleDelete} />
+      <TodoList
+        list={todoList}
+        onDrop={handleDrop}
+        onDelete={handleDelete}
+        onCheck={handleCheck}
+      />
     </Layout>
   );
 }

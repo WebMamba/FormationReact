@@ -4,13 +4,14 @@ import TodoItem from ".";
 import { item1 } from "../../fixtures/item_fixtures";
 
 test("render TodoItem without crashing", () => {
-  const component = render(<TodoItem {...item1} />);
+  const component = render(<TodoItem task={item1} />);
 
   expect(component).toMatchSnapshot();
 });
 
 test("click on checkbox change css class", () => {
-  render(<TodoItem {...item1} />);
+  const onCheckMock = jest.fn();
+  render(<TodoItem task={item1} onCheck={onCheckMock} />);
 
   const checkBox = screen.getByRole("button");
   const container = screen.getByTestId("todo-item");
