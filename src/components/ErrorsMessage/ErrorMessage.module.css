@@ -1,0 +1,17 @@
+.container {
+  height: 50px;
+  background-color: red;
+  border-radius: 14px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.text {
+  margin-left: 8px;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
