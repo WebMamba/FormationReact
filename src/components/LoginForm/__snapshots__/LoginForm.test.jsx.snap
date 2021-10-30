@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render LoginForm without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+    >
+      <form>
+        <div>
+          <input
+            class="textbox "
+            placeholder="Email"
+            type="text"
+            value=""
+          />
+          <p
+            class="error_message"
+          />
+        </div>
+        <div>
+          <input
+            class="textbox "
+            placeholder="Mot de passe"
+            type="text"
+            value=""
+          />
+          <p
+            class="error_message"
+          />
+        </div>
+        <button
+          class="button"
+        >
+          Connexion
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+`;

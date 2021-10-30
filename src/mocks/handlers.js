@@ -7,7 +7,7 @@ export const handlers = [
   }),
 
   rest.post("/tasks", (req, res, ctx) => {
-    return res(ctx.status(200));
+    return res(ctx.status(201), ctx.json(JSON.parse(req.body)));
   }),
 
   rest.delete("/task/:id", (req, res, ctx) => {

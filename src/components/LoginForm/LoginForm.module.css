@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  max-width: 350px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.button {
+  color: white;
+  padding: 16px;
+  margin: 8px;
+  background-color: #c94288;
+  border: 0px;
+  border-radius: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}

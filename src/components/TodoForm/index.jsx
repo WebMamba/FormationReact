@@ -61,6 +61,7 @@ export default function TodoForm(props) {
         <TextField
           onChange={handleChange}
           onBlur={handleBlur}
+          label="Aujourd'hui je fais..."
           value={value}
           error={error && touched}
           helperMessage={helperMessage}

@@ -29,11 +29,15 @@ function App() {
     const currentState = [...todoList];
     setTodoList([...currentState, newItem]);
 
-    postTask(newItem).catch((error) => {
-      setTodoList(currentState);
-      setError(true);
-      setErrorMessage("Impossible d'ajouter un item pour le moment !");
-    });
+    postTask(newItem)
+      .then((res) => {
+        setTodoList([...currentState, res]);
+      })
+      .catch((error) => {
+        setTodoList(currentState);
+        setError(true);
+        setErrorMessage("Impossible d'ajouter un item pour le moment !");
+      });
   };
 
   const handleDrop = (reorderedList) => {

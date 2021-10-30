@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import styles from "./TextField.module.css";
 
 export default function TextField(props) {
-  const { value, onChange, error, helperMessage } = props;
+  const { value, onChange, error, helperMessage, label } = props;
 
   return (
     <div>
@@ -11,7 +11,7 @@ export default function TextField(props) {
         type="text"
         value={value}
         onChange={onChange}
-        placeholder="Aujourd'hui je fais..."
+        placeholder={label}
       />
       <p className={styles.error_message}>{error ? helperMessage : ""}</p>
     </div>
@@ -22,5 +22,6 @@ TextField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   error: PropTypes.bool,
+  lavel: PropTypes.string,
   helperMessage: PropTypes.string,
 };

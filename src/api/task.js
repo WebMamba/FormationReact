@@ -32,7 +32,7 @@ export function postTask(data) {
         throw Error(response.statusText);
       }
 
-      return response;
+      return response.json();
     }
   );
 }
