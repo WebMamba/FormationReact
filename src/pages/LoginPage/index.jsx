@@ -1,4 +1,5 @@
 import CenteredContainer from "../../components/CenteredContainer";
+import Layout from "../../components/Layout";
 import LoginForm from "../../components/LoginForm";
 
 export default function LoginPages() {
@@ -7,8 +8,10 @@ export default function LoginPages() {
   };
 
   return (
-    <CenteredContainer>
-      <LoginForm onLogin={handleLogin} />
-    </CenteredContainer>
+    <Layout>
+      <CenteredContainer>
+        <LoginForm onLogin={handleLogin} />
+      </CenteredContainer>
+    </Layout>
   );
 }
