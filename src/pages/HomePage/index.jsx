@@ -5,6 +5,9 @@ import TodoForm from "../../components/TodoForm";
 import TodoList from "../../components/TodoList";
 import Loader from "../../components/Loader";
 import { deleteTask, getTasks, postTask, putTask } from "../../api/task";
+import { useContext } from "react";
+import { AuthentificationContext } from "../../contexts/AuthentificationContext";
+import { useHistory } from "react-router-dom";
 
 export default function HomePage() {
   const [todoList, setTodoList] = useState([]);
@@ -12,8 +15,16 @@ export default function HomePage() {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const authentification = useContext(AuthentificationContext);
+  const token = authentification.token;
+
+  const history = useHistory();
+
   useEffect(() => {
-    getTasks()
+    if (token === "") {
+      history.push("/login");
+    }
+    getTasks(token)
       .then((tasks) => {
         setTodoList(tasks);
         setLoading(false);
@@ -23,13 +34,13 @@ export default function HomePage() {
         setError(true);
         setErrorMessage("Impossible de charger votre todo list !");
       });
-  }, []);
+  }, [authentification]);
 
   const handleAddItem = (newItem) => {
     const currentState = [...todoList];
     setTodoList([...currentState, newItem]);
 
-    postTask(newItem)
+    postTask(token, newItem)
       .then((res) => {
         setTodoList([...currentState, res]);
       })
@@ -48,7 +59,7 @@ export default function HomePage() {
     const currentState = [...todoList];
     setTodoList([...todoList].filter((item) => item.id !== id));
 
-    deleteTask(id).catch(() => {
+    deleteTask(token, id).catch(() => {
       setTodoList(currentState);
       setError(true);
       setErrorMessage("Impossible de supprimer l'item !");
@@ -65,7 +76,7 @@ export default function HomePage() {
       )
     );
 
-    putTask(id, { check: !elementToUpdate.check }).catch(() => {
+    putTask(token, id, { check: !elementToUpdate.check }).catch(() => {
       setTodoList(currentState);
       setError(true);
       setErrorMessage("Impossible de checker l'item pour le moment !");
